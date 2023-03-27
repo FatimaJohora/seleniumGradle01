@@ -10,9 +10,9 @@ public class ChromeBrowserLaunch {
 @Test
  void browserLaunchTest(){
         WebDriverManager.chromedriver().setup();
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("--remote-allow-origins=*");
-        WebDriver driver = new ChromeDriver(options);
+      //  ChromeOptions options = new ChromeOptions();
+      //  options.addArguments("--remote-allow-origins=*");
+        WebDriver driver = new ChromeDriver();
 
         driver.get("https://www.amazon.com/");
         driver.manage().window().maximize();
