@@ -18,6 +18,7 @@ public class WindowHandleAndiFrameTest {
         driver.manage().deleteAllCookies();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
 
+        //Click on login page link
         driver.findElement(By.xpath("//a[text()='Paychex Flex login']")).click();
 
 
