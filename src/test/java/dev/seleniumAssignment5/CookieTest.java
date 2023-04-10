@@ -1,4 +1,4 @@
-package seleniumAssignment5;
+package dev.seleniumAssignment5;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.Cookie;
