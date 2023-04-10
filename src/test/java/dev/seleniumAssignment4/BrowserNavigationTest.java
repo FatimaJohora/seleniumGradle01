@@ -1,4 +1,4 @@
-package seleniumAssignment4;
+package dev.seleniumAssignment4;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;

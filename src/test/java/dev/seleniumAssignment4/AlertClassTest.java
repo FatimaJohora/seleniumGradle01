@@ -1,4 +1,4 @@
-package seleniumAssignment4;
+package dev.seleniumAssignment4;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.Alert;
@@ -8,38 +8,47 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import java.time.Duration;
 
-public class AlertTest {
+public class AlertClassTest {
     public static void main(String[] args) throws InterruptedException {
         WebDriverManager.chromedriver().setup();
         WebDriver driver = new ChromeDriver();
 
-        driver.get("https://demoqa.com/alerts");
+        driver.get("https://www.selenium.dev/documentation/webdriver/interactions/alerts/");
         driver.manage().window().maximize();
         driver.manage().deleteAllCookies();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
         driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(20));
 
-        //Alerts
-        driver.findElement(By.cssSelector("#alertButton")).click();
-        driver.switchTo().alert().accept();
+        // scroll Down
+        JavascriptExecutor Scroll = (JavascriptExecutor)driver;
+        Scroll.executeScript("scroll(0,300)");
 
-        //scroll Down
-        ((JavascriptExecutor)driver).executeScript("scroll(0,400)");
+        //Alerts
+        driver.findElement(By.cssSelector("a[onclick*='alert']")).click();
+        driver.switchTo().alert().accept();
+        Thread.sleep(2000);
 
         //Confirm
-        driver.findElement(By.id("confirmButton")).click();
+        Scroll.executeScript("scroll(0,900)");
+        driver.findElement(By.cssSelector("a[onclick*='confirm']")).click();
         Alert confirmAlert = driver.switchTo().alert();
         System.out.println(confirmAlert.getText());
         confirmAlert.dismiss();
+        Thread.sleep(2000);
 
         //Prompt
-        driver.findElement(By.id("promtButton")).click();
+        Scroll.executeScript("scroll(0,600)");
+        driver.findElement(By.cssSelector("a[onclick*='prompt']")).click();
         Alert promptAlert = driver.switchTo().alert();
-        promptAlert.sendKeys("Sakib");
+        Thread.sleep(2000);
+        promptAlert.sendKeys("Selenium");
         promptAlert.accept();
         Thread.sleep(2000);
 
         driver.quit();
+
+
+
 
     }
 }
